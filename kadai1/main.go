@@ -1,13 +1,16 @@
 package main
 
 import (
-	"os"
+	"flag"
 
-	"jpg2png/convert"
+	"convert/convert"
 )
 
+var srcType = flag.String("f", "jpeg", "source image file format")
+
 func main() {
-	paths := os.Args[1:]
+	flag.Parse()
+	paths := flag.Args()
 	for _, path := range paths {
 		convert.Convert(path)
 	}

@@ -1,3 +1,3 @@
-module jpg2png
+module convert
 
 go 1.17
