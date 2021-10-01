@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 
-	"convert/convert"
+	"convert/lib"
 )
 
 var srcType = flag.String("f", "jpeg", "source image file format")
