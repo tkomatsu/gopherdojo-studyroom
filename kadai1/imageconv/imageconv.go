@@ -1,7 +1,7 @@
 // convert package
 // this package convert jpeg to png.
 
-package convert
+package imageconv
 
 import (
 	"fmt"
@@ -16,7 +16,7 @@ import (
 	"strings"
 )
 
-func Convert(dir string) {
+func Convert(dir string, srcType string) {
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%v: %v\n", dir, err)
@@ -26,7 +26,7 @@ func Convert(dir string) {
 		fmt.Println(file.Name())
 		if file.IsDir() {
 			fmt.Println()
-			Convert(filepath.Join(dir, file.Name()))
+			Convert(filepath.Join(dir, file.Name()), srcType)
 		} else {
 			if strings.HasSuffix(file.Name(), ".jpg") {
 				jpg2png(filepath.Join(dir, file.Name()))
